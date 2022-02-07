@@ -1,9 +1,12 @@
+// const { fetchProducts } = require("./helpers/fetchProducts");
+// CREATE PRODUCT IMG - cria um elemento img com classe = item_image
 function createProductImageElement(imageSource) {
   const img = document.createElement('img');
   img.className = 'item__image';
   img.src = imageSource;
   return img;
 }
+// END OF PRODUCT IMG
 
 function createCustomElement(element, className, innerText) {
   const e = document.createElement(element);
@@ -11,11 +14,11 @@ function createCustomElement(element, className, innerText) {
   e.innerText = innerText;
   return e;
 }
-
-function createProductItemElement({ sku, name, image }) {
+// CREATE ONE PRODUCT CARD - cria uma section com classe item, e entao cria como filhos span e img
+function createProductItemElement({ id: sku, title: name, thumbnail: image }) {
   const section = document.createElement('section');
   section.className = 'item';
-
+ 
   section.appendChild(createCustomElement('span', 'item__sku', sku));
   section.appendChild(createCustomElement('span', 'item__title', name));
   section.appendChild(createProductImageElement(image));
@@ -23,7 +26,7 @@ function createProductItemElement({ sku, name, image }) {
 
   return section;
 }
-
+// END OF CREATE PRODUCT CARD
 function getSkuFromProductItem(item) {
   return item.querySelector('span.item__sku').innerText;
 }
@@ -40,4 +43,14 @@ function createCartItemElement({ sku, name, salePrice }) {
   return li;
 }
 
+// criando funcao de criar lista
+const createList = async () => {
+  const selectClassItem = document.querySelector('.items');
+  const resultApi = await fetchProducts('computador');
+  resultApi.results.forEach((product) => {
+    selectClassItem.appendChild(createProductItemElement(product));
+  });
+};
+createList();
+// fim da funcao de criar lista
 window.onload = () => { };
