@@ -1,4 +1,6 @@
 // const { fetchProducts } = require("./helpers/fetchProducts");
+// const { fetchItem } = require("./helpers/fetchItem");
+
 // CREATE PRODUCT IMG - cria um elemento img com classe = item_image
 function createProductImageElement(imageSource) {
   const img = document.createElement('img');
@@ -35,7 +37,7 @@ function cartItemClickListener(event) {
   // coloque seu código aqui
 }
 
-function createCartItemElement({ sku, name, salePrice }) {
+function createCartItemElement({ id: sku, title: name, price: salePrice }) {
   const li = document.createElement('li');
   li.className = 'cart__item';
   li.innerText = `SKU: ${sku} | NAME: ${name} | PRICE: $${salePrice}`;
@@ -53,4 +55,15 @@ const createList = async () => {
 };
 createList();
 // fim da funcao de criar lista
+
+// criando funcao de adicionar item no carrinho
+
+const addItem = async () => {
+  const tryTest = document.getElementsByClassName('.item__title').innerText;
+  console.log(tryTest);
+  const list = document.querySelector('.cart__items')[0];
+  const resultApi = await fetchItem(tryTest);
+  list.appendChild(createCartItemElement(resultApi));
+};
+addItem();
 window.onload = () => { };
