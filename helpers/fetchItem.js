@@ -1,4 +1,4 @@
-const fetchItem = async (parameter = 'MLB1341706310') => {
+const fetchItem = async (parameter) => {
   // seu código aqui
   try {
   const getApi = `https://api.mercadolibre.com/items/${parameter}`;
@@ -9,6 +9,7 @@ const fetchItem = async (parameter = 'MLB1341706310') => {
     throw new Error('You must provide and url');
   }
 };
+// fetchItem('MLB1341706310').then(console.log);
 if (typeof module !== 'undefined') {
   module.exports = {
     fetchItem,
