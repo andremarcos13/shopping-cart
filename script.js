@@ -5,11 +5,23 @@ const cartItemLi = document.querySelectorAll('.cart__item');
 const btnEmpty = document.querySelector('.empty-cart');
 // fim declaracao variaveis
 
+// criando loading
+async function loadingText() {
+  const div = await document.createElement('div');
+  div.className = 'loading';
+  div.innerText = 'carregando...';
+  addToCart.appendChild(div);
+}
+function removeLoadingText() {
+  document.querySelector('.loading').remove();
+}
+// fim loading
+
 // CREATE PRODUCT IMG - cria um elemento img com classe = item_image
 function createProductImageElement(imageSource) {
   const img = document.createElement('img');
   img.className = 'item__image';
-  img.src = imageSource.replace('I.jpg', 'J.jpg');
+  img.src = imageSource.replace('I.jpg', 'J.jpg'); // trocando qualidade das imanges para HD - vi no Slack e achei legal!
   return img;
 }
 // END OF PRODUCT IMG
@@ -58,6 +70,7 @@ const createList = async () => {
   resultApi.results.forEach((product) => {
     selectClassItem.appendChild(createProductItemElement(product));
   });
+  removeLoadingText();
 };
 createList();
 // fim da funcao de criar lista
@@ -83,3 +96,4 @@ btnEmpty.addEventListener('click', emptyShoppingCar);
 // fim funcao esvaziar carrinho
 
 window.onload = () => {};
+loadingText();
