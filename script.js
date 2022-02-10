@@ -1,6 +1,3 @@
-// const { fetchProducts } = require("./helpers/fetchProducts");
-// const { fetchItem } = require("./helpers/fetchItem");
-
 // CREATE PRODUCT IMG - cria um elemento img com classe = item_image
 function createProductImageElement(imageSource) {
   const img = document.createElement('img');
