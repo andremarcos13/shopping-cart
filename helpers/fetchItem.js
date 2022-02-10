@@ -6,7 +6,7 @@ const fetchItem = async (parameter) => {
   const result = await apiResponse.json();
   return result;
   } catch (error) {
-    throw new Error('You must provide and url');
+    throw new Error('You must provide an url');
   }
 };
 // fetchItem('MLB1341706310').then(console.log);
