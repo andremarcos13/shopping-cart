@@ -57,12 +57,14 @@ createList();
 
 const addToCart = document.querySelector('.items');
 const cartItems = document.querySelector('.cart__items');
+const shoppingList = document.getElementsByClassName('.cart__item');
 // funcao para adicionar ao carrinho
 addToCart.addEventListener('click', async (event) => {
   if (event.target.classList.contains('item__add')) {
     const valueSku = getSkuFromProductItem(event.target.parentNode);
     const callFetchItem = await fetchItem(valueSku);
     cartItems.appendChild(createCartItemElement(callFetchItem));
+    saveCartItems(shoppingList.innerHTML);
   }
 });
 // fim funcao adicionar ao carrinho
