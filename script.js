@@ -1,3 +1,9 @@
+// declaracao de variaveis globais - utilizadas nas funcoes abaixo
+const addToCart = document.querySelector('.items');
+const cartItems = document.querySelector('.cart__items');
+const shoppingList = document.getElementsByClassName('.cart__item');
+// fim declaracao variaveis
+
 // CREATE PRODUCT IMG - cria um elemento img com classe = item_image
 function createProductImageElement(imageSource) {
   const img = document.createElement('img');
@@ -55,10 +61,7 @@ const createList = async () => {
 createList();
 // fim da funcao de criar lista
 
-const addToCart = document.querySelector('.items');
-const cartItems = document.querySelector('.cart__items');
-const shoppingList = document.getElementsByClassName('.cart__item');
-// funcao para adicionar ao carrinho
+// evento para adicionar ao carrinho
 addToCart.addEventListener('click', async (event) => {
   if (event.target.classList.contains('item__add')) {
     const valueSku = getSkuFromProductItem(event.target.parentNode);
@@ -67,6 +70,8 @@ addToCart.addEventListener('click', async (event) => {
     saveCartItems(shoppingList.innerHTML);
   }
 });
-// fim funcao adicionar ao carrinho
+// fim evento adicionar ao carrinho
+// funcao localStorage 
 
+// fim funcao localStorage
 window.onload = () => {};
