@@ -9,7 +9,7 @@ const btnEmpty = document.querySelector('.empty-cart');
 function createProductImageElement(imageSource) {
   const img = document.createElement('img');
   img.className = 'item__image';
-  img.src = imageSource;
+  img.src = imageSource.replace('I.jpg', 'J.jpg');
   return img;
 }
 // END OF PRODUCT IMG
