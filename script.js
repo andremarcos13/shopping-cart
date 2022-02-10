@@ -62,7 +62,6 @@ addToCart.addEventListener('click', async (event) => {
   if (event.target.classList.contains('item__add')) {
     const valueSku = getSkuFromProductItem(event.target.parentNode);
     const callFetchItem = await fetchItem(valueSku);
-    console.log(callFetchItem);
     cartItems.appendChild(createCartItemElement(callFetchItem));
   }
 });
