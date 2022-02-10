@@ -1,7 +1,8 @@
 // declaracao de variaveis globais - utilizadas nas funcoes abaixo
 const addToCart = document.querySelector('.items');
 const cartItems = document.querySelector('.cart__items');
-const shoppingList = document.getElementsByClassName('.cart__item');
+const cartItemLi = document.querySelectorAll('.cart__item');
+const btnEmpty = document.querySelector('.empty-cart');
 // fim declaracao variaveis
 
 // CREATE PRODUCT IMG - cria um elemento img com classe = item_image
@@ -73,4 +74,12 @@ addToCart.addEventListener('click', async (event) => {
 // funcao localStorage 
 
 // fim funcao localStorage
+
+// funcao esvaziar carrinho
+function emptyShoppingCar() {
+  cartItems.innerHTML = '';
+}
+btnEmpty.addEventListener('click', emptyShoppingCar);
+// fim funcao esvaziar carrinho
+
 window.onload = () => {};
